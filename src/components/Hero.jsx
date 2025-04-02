@@ -33,7 +33,6 @@ export default function Hero() {
                 </div>
                 </div>
                 <div className="relative w-full mt-12 flex flex-wrap justify-between items-center gap-6">
-                    {/* Left - User with Chat Bubble */}
                 <span className="relative hidden md:block">
                     <img
                         src={herochat}
