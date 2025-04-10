@@ -1,6 +1,6 @@
 const CTA = () => {
     return (
-      <section className="bg-[#F5ECFF] flex justify-center items-center py-20 px-6">
+      <section className="bg-[#F5ECFF] flex justify-center items-center py-20 px-6 m-10 rounded-lg shadow-md">
         <div className="max-w-2xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-black">
             GET EARLY ACCESS TO XYRA!

@@ -43,84 +43,84 @@ export const questions = [
       ]
     },
     {
+      question: "How do you feel about taking financial risks, such as investing in stocks?",
+      options: [
+        "I avoid risks; I prefer safe options like savings accounts",
+        "I'm willing to take some risks if the potential reward is high.",
+        "I actively seek out investment opportunities, even if they're risky.",
+        "I only take risks if it benefits others, not just myself."
+      ]
+    },
+    {
       question: "What is your primary financial goal?",
       options: [
-        "Building savings",
-        "Buying a home",
-        "Starting a business",
-        "Retiring early"
+        "To have a secure financial future and retirement.",
+        "To enjoy life and have the things I want now.",
+        "To build significant wealth and leave a legacy.",
+        "To be able to give generously to causes I care about."
       ]
     },
     {
-      question: "How do you usually track your expenses?",
+      question: "How do you approach shopping and making purchases?",
       options: [
-        "Manually using a notebook or spreadsheet",
-        "Using a budgeting app",
-        "I don't track my expenses",
-        "I rely on my bank statements"
+        "- I always look for the best deals and discounts.",
+        "I buy what I need and want, even if it's not on sale",
+        "I focus on purchases that can appreciate in value or generate income.",
+        "I consider how my purchases can benefit others or the community."
       ]
     },
     {
-      question: "What is your preferred method of saving money?",
+      question: "Are you comfortable with having debt, such as credit card balances or loans?",
       options: [
-        "Fixed deposits",
-        "Recurring savings account",
-        "Investing in mutual funds or stocks",
-        "Keeping cash at home"
+        "No, I try to avoid debt as much as possible.",
+        "I avoid debt unless it's to help others.",
+        "I'm comfortable with debt as long as I can manage the payments.",
+        "It's okay if it's for necessary expenses or investments."
       ]
     },
     {
-      question: "How often do you review your financial goals?",
+      question: "How important is it for you to have the latest technology, fashion, or luxury items?",
       options: [
-        "Monthly",
-        "Quarterly",
-        "Annually",
-        "I don't review them"
+        "- Not important; I prefer to save money.",
+        "Somewhat important, but I wait for sales or discounts.",
+        "Very important; I like to have the best.",
+        "Important only if it helps me in my work or giving back."
       ]
     },
     {
-      question: "What is your biggest financial challenge?",
+      question: "Do you regularly set aside money for savings or investments?",
       options: [
-        "Managing debt",
-        "Saving consistently",
-        "Investing wisely",
-        "Planning for retirement"
+        "Yes, saving is a priority for me.",
+        "I save what's left after my expenses.",
+        "I invest regularly to grow my wealth.",
+        "I save to have money to give away."
       ]
     },
     {
-      question: "How do you prefer to learn about personal finance?",
+      question: "How do you feel about lending money to friends or family?",
       options: [
-        "Reading books or blogs",
-        "Watching videos or attending webinars",
-        "Consulting a financial advisor",
-        "Learning through trial and error"
+        "I'm hesitant because I worry about not getting it back.",
+        "I lend money if I can afford it, but I expect it to be repaid.",
+        "I don't lend money; I might give it if it's for a good cause.",
+        "I'm happy to help out, even if it means not getting it back."
       ]
     },
     {
-      question: "What motivates you to save money?",
+      question: "What type of financial product do you prefer?",
       options: [
-        "Achieving financial independence",
-        "Buying something expensive",
-        "Providing for family or loved ones",
-        "Preparing for emergencies"
+        "High-interest savings accounts.",
+        "Credit cards with rewards.",
+        "Investment portfolios or mutual funds.",
+        "Charitable donation accounts or impact investing."
       ]
     },
     {
-      question: "How do you handle unexpected expenses?",
+      question: "If you won a large sum of money, what would be your first action?",
       options: [
-        "Use my emergency fund",
-        "Rely on credit cards or loans",
-        "Cut back on other expenses",
-        "Borrow from friends or family"
-      ]
-    },
-    {
-      question: "What is your approach to investing?",
-      options: [
-        "I prefer low-risk investments",
-        "I take calculated risks for higher returns",
-        "I don't invest at all",
-        "I rely on professional advice"
+        "Put it in a safe, secure place like a bank.",
+        "Spend some on things I've always wanted",
+        "Invest it to grow the amount",
+        "Donate a significant portion to charity or causes I care about."
       ]
     }
   ];

@@ -8,8 +8,13 @@
 
 @font-face {
   font-family: 'Mena Grotesk';
-  src: url('./assets/fonts/Mena\ Grotesk/.woff') format('woff');
+  src: url('./assets/Mena\ Grotesk/.menagrotesk') format('woff');
   font-weight: normal;
+  font-style: normal;
+}
+
+.menagrotesk {
+  font-family: 'Mena Grotesk', sans-serif;
   font-style: normal;
 }
 

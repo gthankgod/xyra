@@ -3,10 +3,12 @@ import { questions } from '../constants';
 import { Button } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import toast styles
+import { useNavigate } from 'react-router-dom';
 
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]); // Stores all answers
+  const navigate = useNavigate();
 
   // Retrieve the selected option for the current question
   const selectedOption = answers[currentQuestion]?.optionIndex ?? null;
@@ -53,14 +55,13 @@ export default function Quiz() {
     }
 
     try {
-      const response = await fetch("https://api.example.com/submit-quiz", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers })
-      });
-      const data = await response.json();
-      console.log("Submission successful:", data);
-      toast.success("Quiz submitted successfully!");
+      const formattedAnswers = answers.map(answer => ({
+        question: answer.question,
+        options: questions.find(q => q.question === answer.question)?.options || [],
+        response: answer.answer,
+      }));
+
+      navigate('/submit-form', { state: { formattedAnswers } });
     } catch (error) {
       console.error("Error submitting quiz:", error);
       toast.error("Failed to submit quiz. Please try again.");
