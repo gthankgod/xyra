@@ -22,7 +22,7 @@ export default function MoneyPersonalityForm() {
                 persona: passedData.userData.persona,
                 answers: passedData?.formattedAnswers,
               };
-              console.log("Payload:", payload);
+              
             const res = await fetch("https://xyra-be.vercel.app/api/finance/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
