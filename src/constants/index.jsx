@@ -124,3 +124,26 @@ export const questions = [
       ]
     }
   ];
+
+export const personas = [
+  {
+    name: "The Analyst",
+    avatar: "🧠",
+    description: "Logical and data-driven — your personal finance guru.",
+  },
+  {
+    name: "The Dreamer",
+    avatar: "🌈",
+    description: "Creative and visionary — inspiring you to think big.",
+  },
+  {
+    name: "The Hustler",
+    avatar: "🔥",
+    description: "Ambitious and driven — pushing you to achieve your goals.",
+  },
+  {
+    name: "The Nurturer",
+    avatar: "💖",
+    description: "Caring and supportive — always looking out for your well-being.",
+  }
+];

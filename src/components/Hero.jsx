@@ -26,7 +26,7 @@ export default function Hero() {
 
         <div className="flex justify-center mt-8">
           <a
-            href="/quiz"
+            href="/start"
             className="mt-8 px-8 py-3 text-md font-semibold text-black rounded-md transition-all duration-300 bg-purple-400"
           >
             TAKE THE QUIZ

@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Quiz from "./components/Quiz"; 
 import Personality from "./components/Personality";
 import SubmitForm from "./components/SubmitForm";
+import QuizGate from "./components/QuizGate"; // new component
 
 const Home = () => (
   <>
@@ -23,6 +24,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/start" element={<QuizGate />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/personality" element={<Personality />} />
         <Route path="/submit-form" element={<SubmitForm />} />

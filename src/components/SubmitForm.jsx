@@ -10,7 +10,6 @@ export default function MoneyPersonalityForm() {
 
     // Access the data passed via navigate
     const passedData = location.state?.data;
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -18,11 +17,11 @@ export default function MoneyPersonalityForm() {
 
         try {
             const payload = {
-                email: 'gthankgod@gmail.com',
-                persona: "Smart, youthful and witty",
-                answers: passedData,
+                email: passedData.userData.email,
+                persona: passedData.userData.persona,
+                answers: passedData?.formattedData,
               };
-              
+              console.log("Payload:", payload);
             const res = await fetch("https://xyra-be.vercel.app/api/finance/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -49,7 +48,7 @@ export default function MoneyPersonalityForm() {
                     className="max-w text-center p-8"
                 >
                     <h1 className="text-2xl md:text-3xl font-bold text-black">
-                        WELDONE ORE! 🎉
+                        WELDONE {passedData?.userData?.nickname}! 🎉
                     </h1>
                     <p className="text-sm text-gray-700 mt-2 mb-6">
                         Just tell us where to send your Money Personality report
@@ -58,7 +57,7 @@ export default function MoneyPersonalityForm() {
                         <input
                             type="email"
                             className="flex-1 px-4 py-3 outline-none text-sm"
-                            placeholder="You best email address"
+                            placeholder={passedData?.userData?.email}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -68,7 +67,7 @@ export default function MoneyPersonalityForm() {
                             className="bg-purple-600 text-white font-semibold px-5 py-3 text-sm hover:bg-purple-700 transition-colors"
                             disabled={loading}
                         >
-                            {loading ? "Sending..." : "Get My Report"}
+                            {loading ? "Sending..." : "View My Report"}
                         </button>
                     </div>
                     {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}

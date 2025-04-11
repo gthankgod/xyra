@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { questions } from '../constants';
 import { Button } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
@@ -8,7 +8,37 @@ import { useNavigate } from 'react-router-dom';
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]); // Stores all answers
+  
+  const [userData, setUserData] = useState({
+    nickname: "",
+    email: "",
+    persona: "",
+  });
+  
   const navigate = useNavigate();
+  useEffect(() => {
+    const stateData = location.state || {};
+    const localData = {
+      nickname: localStorage.getItem("nickname") || "",
+      email: localStorage.getItem("email") || "",
+      persona: localStorage.getItem("persona") || "",
+    };
+
+    const finalData = {
+      nickname: stateData.nickname || localData.nickname,
+      email: stateData.email || localData.email,
+      persona: stateData.persona || localData.persona,
+    };
+
+    // Update localStorage for future use
+    localStorage.setItem("nickname", finalData.nickname);
+    localStorage.setItem("email", finalData.email);
+    localStorage.setItem("persona", finalData.persona);
+
+    setUserData(finalData);
+  }, []);
+
+  if (!userData) return <p className="text-center mt-10">Loading user info...</p>;
 
   // Retrieve the selected option for the current question
   const selectedOption = answers[currentQuestion]?.optionIndex ?? null;
@@ -44,6 +74,7 @@ export default function Quiz() {
       setCurrentQuestion(prev => prev - 1);
     }
   };
+  
 
   const handleSubmit = async () => {
     if (selectedOption === null) {
@@ -61,7 +92,7 @@ export default function Quiz() {
         response: answer.answer,
       }));
 
-      navigate('/submit-form', { state: { data: formattedAnswers } });
+      navigate('/submit-form', { state: { data: { formattedAnswers, userData } } });
     } catch (error) {
       console.error("Error submitting quiz:", error);
       toast.error("Failed to submit quiz. Please try again.");
@@ -115,7 +146,7 @@ export default function Quiz() {
             <Button 
               onClick={handleNext} 
               className="bg-purple-500 text-white px-6 py-2 rounded-md">
-              {currentQuestion === questions.length - 1 ? "Proceed" : "Next"}
+              {currentQuestion === questions.length - 1 ? "Finish" : "Next"}
             </Button>
           </div>
         </div>

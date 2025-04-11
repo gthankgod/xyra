@@ -1,12 +1,17 @@
 import { Menu, X } from "lucide-react";
 import React from "react";
 import logo from "../assets/logo.png"; // Adjust the path to your logo image
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
   const [mobileDrawer, setMobileDrawer] = React.useState(false);
   const toggleMobileDrawer = () => {
     setMobileDrawer(!mobileDrawer);
   };
+
+  const hideTakeQuiz = location.pathname === "/quiz" || location.pathname === "/submit-form";
+
   return (
     <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-transparent">
       <div className="container px-4 mx-auto relative text-sm ">
@@ -17,12 +22,14 @@ const Navbar = () => {
             </a>
           </div>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <a
-              href="/quiz"
-              className="bg-purple-400 text-black font-semibold py-2 px-3 rounded-md"
-            >
-              TAKE THE QUIZ
-            </a>
+           {!hideTakeQuiz && (
+              <a
+                href="/start"
+                className="bg-purple-400 text-black font-semibold py-2 px-3 rounded-md"
+              >
+                TAKE THE QUIZ
+              </a>
+            )}
           </div>
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleMobileDrawer}>
@@ -41,7 +48,7 @@ const Navbar = () => {
                 Home
               </a>
               <a
-                href="/quiz"
+                href="/start"
                 className="bg-gradient-to-r from-orange-500 py-2 px-3 rounded-md"
               >
                 Take the Quiz
