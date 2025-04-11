@@ -18,8 +18,9 @@ export default function MoneyPersonalityForm() {
         try {
             const payload = {
                 email: passedData.userData.email,
+                nickname: passedData.userData.nickname,
                 persona: passedData.userData.persona,
-                answers: passedData?.formattedData,
+                answers: passedData?.formattedAnswers,
               };
               console.log("Payload:", payload);
             const res = await fetch("https://xyra-be.vercel.app/api/finance/submit", {

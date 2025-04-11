@@ -18,22 +18,13 @@ export default function Quiz() {
   const navigate = useNavigate();
   useEffect(() => {
     const stateData = location.state || {};
-    const localData = {
-      nickname: localStorage.getItem("nickname") || "",
-      email: localStorage.getItem("email") || "",
-      persona: localStorage.getItem("persona") || "",
-    };
+    const localData = JSON.parse(localStorage.getItem("formData") || "{}");
 
     const finalData = {
       nickname: stateData.nickname || localData.nickname,
       email: stateData.email || localData.email,
       persona: stateData.persona || localData.persona,
     };
-
-    // Update localStorage for future use
-    localStorage.setItem("nickname", finalData.nickname);
-    localStorage.setItem("email", finalData.email);
-    localStorage.setItem("persona", finalData.persona);
 
     setUserData(finalData);
   }, []);
@@ -86,13 +77,13 @@ export default function Quiz() {
     }
 
     try {
-      const formattedAnswers = answers.map(answer => ({
+      const formattedData = answers.map(answer => ({
         question: answer.question,
         options: questions.find(q => q.question === answer.question)?.options || [],
         response: answer.answer,
       }));
 
-      navigate('/submit-form', { state: { data: { formattedAnswers, userData } } });
+      navigate('/submit-form', { state: { data: { formattedData, userData } } });
     } catch (error) {
       console.error("Error submitting quiz:", error);
       toast.error("Failed to submit quiz. Please try again.");
