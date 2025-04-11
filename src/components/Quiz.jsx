@@ -61,7 +61,7 @@ export default function Quiz() {
         response: answer.answer,
       }));
 
-      navigate('/submit-form', { state: { formattedAnswers } });
+      navigate('/submit-form', { state: { data: formattedAnswers } });
     } catch (error) {
       console.error("Error submitting quiz:", error);
       toast.error("Failed to submit quiz. Please try again.");
@@ -115,7 +115,7 @@ export default function Quiz() {
             <Button 
               onClick={handleNext} 
               className="bg-purple-500 text-white px-6 py-2 rounded-md">
-              {currentQuestion === questions.length - 1 ? "Submit" : "Next"}
+              {currentQuestion === questions.length - 1 ? "Proceed" : "Next"}
             </Button>
           </div>
         </div>

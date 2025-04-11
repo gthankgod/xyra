@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { MailCheck, Mail } from "lucide-react";
+import React from "react";
+import { useLocation } from "react-router-dom";
 
 const MoneyPersonalityResult = () => {
-  const [data, setData] = useState(null);
+  const location = useLocation();
+  const personalityData = location.state?.data?.data?.aiResponse;
+  
+  if(location.state && location.state?.data?.status !== 'successful') {
+    return <div className="text-center mt-10">Error in generating financial report. Please try again.</div>;
+  }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("https://xyra-be.vercel.app"); // Replace with real API
-      const result = await response.json();
-      setData(result);
-    };
-
-    fetchData();
-  }, []);
-
-  if (!data) return <div className="text-center mt-10">Loading...</div>;
+  if (!personalityData) {
+    return <div className="text-center mt-10">Loading...</div>;
+  }
 
   return (
     <div className="p-8 bg-purple-100 min-h-screen">
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-md">
         <h1 className="text-center text-2xl font-bold mb-4">
-          {data.name.toUpperCase()}'S MONEY PERSONALITY
+          YOUR MONEY PERSONALITY
         </h1>
         <h2 className="text-center text-xl font-semibold text-purple-700 mb-6">
-          YOU’RE A {data.personality.toUpperCase()} 🎉
+          YOU’RE A {personalityData.personality.toUpperCase()} 🎉
         </h2>
 
         <div className="flex justify-center gap-4 mb-6">
@@ -31,7 +28,7 @@ const MoneyPersonalityResult = () => {
             <div
               key={type}
               className={`flex flex-col items-center px-4 py-2 rounded-lg border ${
-                type === data.personality
+                type === personalityData.personality
                   ? "bg-purple-200 border-purple-500"
                   : "bg-gray-100"
               }`}
@@ -52,16 +49,16 @@ const MoneyPersonalityResult = () => {
 
         <div className="bg-purple-50 p-4 rounded-xl mb-6">
           <h3 className="font-semibold text-purple-700 mb-2">
-            "{data.description.title}"
+            "{personalityData.description.heading}"
           </h3>
-          <p className="text-gray-700 text-sm">{data.description.body}</p>
+          <p className="text-gray-700 text-sm">{personalityData.description.content}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <h4 className="font-bold mb-2">Superpowers</h4>
             <ul className="list-disc list-inside text-sm text-gray-800 space-y-1">
-              {data.superpowers.map((item, idx) => (
+              {personalityData.superpowers.map((item, idx) => (
                 <li key={idx}>✅ {item}</li>
               ))}
             </ul>
@@ -70,7 +67,7 @@ const MoneyPersonalityResult = () => {
           <div>
             <h4 className="font-bold mb-2">Your Challenges</h4>
             <ul className="list-disc list-inside text-sm text-gray-800 space-y-1">
-              {data.challenges.map((item, idx) => (
+              {personalityData.challenges.map((item, idx) => (
                 <li key={idx}>⚠️ {item}</li>
               ))}
             </ul>
@@ -79,7 +76,7 @@ const MoneyPersonalityResult = () => {
           <div>
             <h4 className="font-bold mb-2">How to Find Balance</h4>
             <ul className="list-disc list-inside text-sm text-gray-800 space-y-1">
-              {data.balanceTips.map((item, idx) => (
+              {personalityData.find_balance.map((item, idx) => (
                 <li key={idx}>💡 {item}</li>
               ))}
             </ul>

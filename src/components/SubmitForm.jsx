@@ -17,15 +17,19 @@ export default function MoneyPersonalityForm() {
         setError("");
 
         try {
-            console.log("passedData", passedData);
+            const payload = {
+                email: 'gthankgod@gmail.com',
+                persona: "Smart, youthful and witty",
+                answers: passedData,
+              };
+              
             const res = await fetch("https://xyra-be.vercel.app/api/finance/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, answers: passedData, persona: "Smart and witty" }),
+                body: JSON.stringify(payload),
             });
 
             const data = await res.json();
-
             if (!res.ok) throw new Error(data.message || "Something went wrong");
 
             navigate(`/personality`, { state: { data } });
