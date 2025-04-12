@@ -77,13 +77,13 @@ export default function Quiz() {
     }
 
     try {
-      const formattedData = answers.map(answer => ({
+      const formattedAnswers = answers.map(answer => ({
         question: answer.question,
         options: questions.find(q => q.question === answer.question)?.options || [],
         response: answer.answer,
       }));
 
-      navigate('/submit-form', { state: { data: { formattedData, userData } } });
+      navigate('/submit-form', { state: { data: { formattedAnswers, userData } } });
     } catch (error) {
       console.error("Error submitting quiz:", error);
       toast.error("Failed to submit quiz. Please try again.");
