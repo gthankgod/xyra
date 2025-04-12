@@ -11,6 +11,7 @@ const Navbar = () => {
   };
 
   const hideTakeQuiz = location.pathname === "/quiz" || location.pathname === "/submit-form";
+  const isPersonalityPage = location.pathname === "/personality";
 
   return (
     <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-transparent">
@@ -27,7 +28,7 @@ const Navbar = () => {
                 href="/start"
                 className="bg-purple-400 text-black font-semibold py-2 px-3 rounded-md"
               >
-                TAKE THE QUIZ
+                {!isPersonalityPage ? 'TAKE THE QUIZ' : 'RETAKE THE QUIZ'}
               </a>
             )}
           </div>
