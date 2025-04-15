@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Mena Grotesk';
+    src: url('/fonts/mena-grotesk/Mena\ Grotesk\ Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Mena Grotesk';
+    src: url('/fonts/mena-grotesk/Mena\ Grotesk\ Regular\ Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Mena Grotesk';
+    src: url('/fonts/mena-grotesk/Mena\ Grotesk\ Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Mena Grotesk';
+    src: url('/fonts/mena-grotesk/Mena\ Grotesk\ Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  /* Add others if needed */
+  
