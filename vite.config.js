@@ -11,8 +11,8 @@ export default defineConfig({
   theme: {
     extend: {
       fontFamily: {
-        menagrotesk: ['Mena Grotesk', 'sans-serif'], // Custom font
-      },
+        space: ['"Space Grotesk"', 'sans-serif'],
+      }
     },
   },
 })

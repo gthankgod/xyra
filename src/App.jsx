@@ -9,6 +9,9 @@ import Quiz from "./components/Quiz";
 import Personality from "./components/Personality";
 import SubmitForm from "./components/SubmitForm";
 import QuizGate from "./components/QuizGate"; // new component
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/700.css'; // Optional weights
+
 
 const Home = () => (
   <>

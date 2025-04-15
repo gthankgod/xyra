@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import IntroForm from "./IntroForm";
+import IntroForm from "./IntroductionForm";
 import axios from "axios";
 
 const QuizGate = () => {
