@@ -3,12 +3,13 @@ import { questions } from '../constants';
 import { Button } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import toast styles
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]); // Stores all answers
-  
+  const location = useLocation();
+
   const [userData, setUserData] = useState({
     nickname: "",
     email: "",
@@ -17,7 +18,7 @@ export default function Quiz() {
   
   const navigate = useNavigate();
   useEffect(() => {
-    const stateData = location.state || {};
+    const stateData = location.state.user || {};
     // const localData = JSON.parse(localStorage.getItem("formData") || "{}");
 
     const finalData = {
