@@ -7,7 +7,8 @@ const QuizGate = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const localUser = localStorage.getItem("formData") && Object.keys(JSON.parse(localStorage.getItem("formData"))).length > 0 ? localStorage.getItem("formData") : null;
+    // const localUser = localStorage.getItem("formData") && Object.keys(JSON.parse(localStorage.getItem("formData"))).length > 0 ? localStorage.getItem("formData") : null;
+    const localUser = null;
     if (localUser) {
       navigate("/quiz", { state: { user: JSON.parse(localUser) } });
     }
@@ -24,7 +25,7 @@ const QuizGate = () => {
 
       const userData = response.status ? response.data : formData;
       // Save locally
-      localStorage.setItem("formData", JSON.stringify({ email: userData.email, nickname: userData.nickname, persona: userData.persona }));
+    //   localStorage.setItem("formData", JSON.stringify({ email: userData.email, nickname: userData.nickname, persona: userData.persona }));
 
       // Redirect with user
       navigate("/quiz", { state: { user: userData } });

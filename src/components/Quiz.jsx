@@ -18,12 +18,12 @@ export default function Quiz() {
   const navigate = useNavigate();
   useEffect(() => {
     const stateData = location.state || {};
-    const localData = JSON.parse(localStorage.getItem("formData") || "{}");
+    // const localData = JSON.parse(localStorage.getItem("formData") || "{}");
 
     const finalData = {
-      nickname: stateData.nickname || localData.nickname,
-      email: stateData.email || localData.email,
-      persona: stateData.persona || localData.persona,
+      nickname: stateData.nickname ,
+      email: stateData.email ,
+      persona: stateData.persona ,
     };
 
     setUserData(finalData);
